@@ -1,6 +1,7 @@
 {
 	"ImportPath": "github.com/docker/machine",
 	"GoVersion": "go1.6",
+	"GodepVersion": "v62",
 	"Packages": [
 		"github.com/docker/machine",
 		"github.com/docker/machine/cmd",
@@ -48,6 +49,7 @@
 		"github.com/docker/machine/libmachine/mcnerror",
 		"github.com/docker/machine/libmachine/mcnflag",
 		"github.com/docker/machine/libmachine/mcnutils",
+		"github.com/docker/machine/libmachine/opt",
 		"github.com/docker/machine/libmachine/persist",
 		"github.com/docker/machine/libmachine/persist/persisttest",
 		"github.com/docker/machine/libmachine/provider",
