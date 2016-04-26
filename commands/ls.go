@@ -347,6 +347,11 @@ func attemptGetHostState(h *host.Host, stateQueryChan chan<- HostListItem) {
 		} else {
 			opts.SSHConfigFile = ""
 		}
+		if h.HostOptions.ProxyOptions != nil {
+			opts.SocksProxy = h.HostOptions.ProxyOptions.SocksProxy
+		} else {
+			opts.SocksProxy = ""
+		}
 		rpcdriver.SetMachineOptions(h.Driver, &opts)
 	}
 
@@ -370,6 +375,7 @@ func attemptGetHostState(h *host.Host, stateQueryChan chan<- HostListItem) {
 		dockerHost := &mcndockerclient.RemoteDocker{
 			HostURL:    url,
 			AuthOption: h.AuthOptions(),
+			SocksProxy: opts.SocksProxy,
 		}
 		dockerVersion, err = mcndockerclient.DockerVersion(dockerHost)
 
